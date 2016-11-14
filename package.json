@@ -38,6 +38,9 @@
 		"pkg": "node_modules/browser-module-env"
 	},
 	"xo": {
-		"envs": ["browser"]
+		"envs": ["browser"],
+    "ignores": [
+      "docs/**"
+    ]
 	}
 }

@@ -1,0 +1,43 @@
+{
+	"name": "validator-lite",
+	"version": "0.0.0",
+	"description": "Lightweight Form Validation (no dependencies)",
+	"license": "MIT",
+	"repository": "lukeed/validator-lite",
+	"author": {
+		"name": "Luke Edwards",
+		"email": "luke.edwards05@gmail.com",
+		"url": "lukeed.com"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"postinstall": "fly setup",
+		"build": "fly build",
+		"release": "fly release",
+		"start": "fly release serve",
+		"watch": "fly watch",
+		"test": "xo && ava"
+	},
+	"main": "lib/index.js",
+	"files": [
+		"lib"
+	],
+	"keywords": [
+		"browser",
+		"browser-module"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"ava": "^0.15.2",
+		"browser-module-env": "^0.0.4",
+		"xo": "^0.16.0"
+	},
+	"fly": {
+		"pkg": "node_modules/browser-module-env"
+	},
+	"xo": {
+		"envs": ["browser"]
+	}
+}

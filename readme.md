@@ -34,6 +34,7 @@ $ npm install --save validator-lite
   var demo = document.getElementById('demo');
   var val = new Validator({
     form: demo,
+    fieldClass: 'form-control',
     rules: {
       email: {
       	required: true,

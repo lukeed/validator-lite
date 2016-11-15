@@ -1,46 +1,63 @@
 {
-	"name": "validator-lite",
-	"version": "0.0.0",
-	"description": "Lightweight Form Validation (no dependencies)",
-	"license": "MIT",
-	"repository": "lukeed/validator-lite",
-	"author": {
-		"name": "Luke Edwards",
-		"email": "luke.edwards05@gmail.com",
-		"url": "lukeed.com"
-	},
-	"engines": {
-		"node": ">=4"
-	},
-	"scripts": {
-		"postinstall": "fly setup",
-		"build": "fly build",
-		"release": "fly release",
-		"start": "fly release serve",
-		"watch": "fly watch",
-		"test": "xo && ava"
-	},
-	"main": "lib/index.js",
-	"files": [
-		"lib"
-	],
-	"keywords": [
-		"browser",
-		"browser-module"
-	],
-	"dependencies": {},
-	"devDependencies": {
-		"ava": "^0.15.2",
-		"browser-module-env": "^0.0.4",
-		"xo": "^0.16.0"
-	},
-	"fly": {
-		"pkg": "node_modules/browser-module-env"
-	},
-	"xo": {
-		"envs": ["browser"],
-    "ignores": [
-      "docs/**"
+  "name": "validator-lite",
+  "version": "0.0.0",
+  "description": "Lightweight Form Validation (no dependencies)",
+  "license": "MIT",
+  "repository": "lukeed/validator-lite",
+  "author": {
+    "name": "Luke Edwards",
+    "email": "luke.edwards05@gmail.com",
+    "url": "lukeed.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "postinstall": "fly setup",
+    "build": "fly build",
+    "docs": "fly docs",
+    "release": "fly release",
+    "start": "fly release serve",
+    "watch": "fly watch",
+    "test": "xo && ava"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "build"
+  ],
+  "keywords": [
+    "browser",
+    "browser-module"
+  ],
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "browser-module-env": "^0.1.0",
+    "xo": "^0.16.0"
+  },
+  "fly": {
+    "pkg": "node_modules/browser-module-env"
+  },
+  "browserify": {
+    "transform": [
+      "rollupify"
     ]
-	}
+  },
+  "xo": {
+    "envs": [
+      "browser"
+    ],
+    "ignores": [
+      "docs/**",
+      "build/**"
+    ],
+    "rules": {
+      "import/no-mutable-exports": 1,
+      "no-prototype-builtins": 1,
+      "no-unused-expressions": 1,
+      "no-implicit-coercion": 1,
+      "one-var": 0,
+      "curly": 1
+    }
+  }
 }

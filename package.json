@@ -22,7 +22,7 @@
     "test": "xo"
   },
   "main": "lib/index.js",
-  "browser": "build/validator.min.js",
+  "browser": "build/validator.js",
   "files": [
     "lib",
     "build"

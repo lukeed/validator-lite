@@ -29,7 +29,13 @@
   ],
   "keywords": [
     "browser",
-    "browser-module"
+    "browser-module",
+    "lightweight",
+    "validation",
+    "validate",
+    "onsubmit",
+    "submit",
+    "form"
   ],
   "devDependencies": {
     "browser-module-env": "^0.1.0",

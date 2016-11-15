@@ -13,7 +13,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "postinstall": "fly setup",
+    "setup": "fly setup",
     "build": "fly build",
     "docs": "fly docs",
     "release": "fly release",

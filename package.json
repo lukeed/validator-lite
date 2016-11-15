@@ -19,7 +19,7 @@
     "release": "fly release",
     "start": "fly release serve",
     "watch": "fly watch",
-    "test": "xo && ava"
+    "test": "xo"
   },
   "main": "lib/index.js",
   "files": [
@@ -31,7 +31,6 @@
     "browser-module"
   ],
   "devDependencies": {
-    "ava": "^0.15.2",
     "browser-module-env": "^0.1.0",
     "xo": "^0.16.0"
   },
@@ -56,6 +55,7 @@
       "no-prototype-builtins": 1,
       "no-unused-expressions": 1,
       "no-implicit-coercion": 1,
+      "no-cond-assign": 1,
       "one-var": 0,
       "curly": 1
     }

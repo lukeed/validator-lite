@@ -28,8 +28,9 @@ var assign = function (tar) {
 function noop() {}
 
 var config = {
-	form: null,
 	rules: {},
+	form: null,
+	hijack: true,
 	fieldClass: 'field',
 	errorClass: 'error',
 	defaultMsg: 'Required',
@@ -97,7 +98,7 @@ Validator.prototype = {
 	attach: function (form) {
 		var o = this.opts,
 			self = this;
-		if (self.form = form) {
+		if (o.hijack && (self.form = form)) {
 			self.form.onsubmit = function (e) {
 				e.preventDefault();
 				return self.checkAll(this) ? o.onFail(form) : o.onPass(form);
@@ -113,6 +114,7 @@ Validator.prototype = {
 	checkAll: function (form) {
 		var self = this;
 
+		self.inputs = [];
 		self.hasErrors = 0;
 		self.form = form || self.form;
 		if (!self.form) {
@@ -128,6 +130,8 @@ Validator.prototype = {
 			el.rules = el.rules || rules[el.name];
 			// skip if no `rules` provided / can be attached
 			if (!el.rules) return;
+			// save as known input
+			self.inputs.push(el);
 			// validate each
 			self.hasErrors = (self.checkOne(el) || self.hasErrors) || 0;
 		});
@@ -226,6 +230,18 @@ Validator.prototype = {
 			// add error class
 			field.classList.add(errCls);
 		}
+	},
+
+	/**
+	 * Reset all fields, if has a form with inputs
+	 */
+	reset: function () {
+		var self = this;
+		self.inputs && self.inputs.forEach(function (el) {
+			var fld = self.getField(el, self.form);
+			fld.status = {error: 0};
+			self.setError(fld, 1);
+		});
 	}
 };
 

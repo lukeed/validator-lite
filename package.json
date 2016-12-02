@@ -1,6 +1,6 @@
 {
   "name": "validator-lite",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Lightweight Form Validation (no dependencies)",
   "license": "MIT",
   "repository": "lukeed/validator-lite",

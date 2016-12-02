@@ -98,7 +98,7 @@ Validator.prototype = {
 	attach: function (form) {
 		var o = this.opts,
 			self = this;
-		if (o.hijack && (self.form = form)) {
+		if ((self.form = form) && o.hijack) {
 			self.form.onsubmit = function (e) {
 				e.preventDefault();
 				return self.checkAll(this) ? o.onFail(form) : o.onPass(form);

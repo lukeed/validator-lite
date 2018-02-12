@@ -1,36 +1,24 @@
 {
   "name": "validator-lite",
   "version": "0.2.1",
-  "description": "Lightweight Form Validation (no dependencies)",
-  "license": "MIT",
   "repository": "lukeed/validator-lite",
+  "description": "Lightweight Form Validation (no dependencies)",
+  "umd:main": "dist/validator-lite.min.js",
+  "module": "dist/validator-lite.es.js",
+  "main": "dist/validator-lite.js",
+  "license": "MIT",
   "author": {
     "name": "Luke Edwards",
     "email": "luke.edwards05@gmail.com",
     "url": "lukeed.com"
   },
-  "engines": {
-    "node": ">=4"
-  },
-  "scripts": {
-    "setup": "fly setup",
-    "build": "fly build",
-    "docs": "fly docs",
-    "release": "fly release",
-    "start": "fly release serve",
-    "watch": "fly watch",
-    "test": "xo"
-  },
-  "main": "lib/index.js",
-  "browser": "build/validator.js",
   "files": [
-    "lib",
-    "build"
+    "dist"
   ],
+  "scripts": {
+    "build": "microbundle lib"
+  },
   "keywords": [
-    "browser",
-    "browser-module",
-    "lightweight",
     "validation",
     "validate",
     "onsubmit",
@@ -38,28 +26,6 @@
     "form"
   ],
   "devDependencies": {
-    "browser-module-env": "^0.1.0",
-    "xo": "^0.16.0"
-  },
-  "fly": {
-    "pkg": "node_modules/browser-module-env"
-  },
-  "xo": {
-    "envs": [
-      "browser"
-    ],
-    "ignores": [
-      "docs/**",
-      "build/**"
-    ],
-    "rules": {
-      "import/no-mutable-exports": 1,
-      "no-prototype-builtins": 1,
-      "no-unused-expressions": 1,
-      "no-implicit-coercion": 1,
-      "no-cond-assign": 1,
-      "one-var": 0,
-      "curly": 1
-    }
+    "microbundle": "^0.4.3"
   }
 }
